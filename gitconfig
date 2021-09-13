@@ -1,0 +1,27 @@
+[user]
+	name = Diego Alberto
+	email = dmalberto@outlook.com
+	sslVerify = false
+	
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[core]
+	editor = vim
+
+[alias]
+    hist = "!f() { commits=${1:--20};  git log $commits --branches=* --decorate --oneline --graph --remotes; }; f"
+
+[color]
+	status = auto
+	ui = auto
+	diff = auto
+
+[color "status"]
+	added = green
+	changed = yellow 
+	untracked = magenta
+	deleted = red
