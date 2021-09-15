@@ -15,7 +15,7 @@
 	status = auto
 
 [color "status"]
-added = green
+	added = green
 	changed = yellow 
 	untracked = magenta
 	deleted = red
