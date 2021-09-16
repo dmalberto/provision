@@ -26,6 +26,7 @@ sudo apt -y update
 sudo apt -y install docker-ce
 
 # firebase
+sudo apt install -y default-jre
 curl -sL https://firebase.tools | bash
 
 # node
