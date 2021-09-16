@@ -1,7 +1,6 @@
 [user]
 	name = Diego Alberto
 	email = dmalberto@outlook.com
-	sslVerify = false
 
 [core]
 	filemode = false
@@ -23,3 +22,6 @@
 [alias]
 	hist = "!f() { commits=${1:--20};  git log $commits --branches=* --decorate --oneline --graph --remotes; }; f"
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+[http]
+	sslVerify = false
