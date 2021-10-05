@@ -56,6 +56,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh
 
+source ~/.nvm/nvm.sh
 # # vscode
 # apt install snapd
 # snap install code --classic
