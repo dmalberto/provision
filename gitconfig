@@ -5,6 +5,8 @@
 [core]
 	filemode = false
 	editor = code
+	longpaths = true
+	autocrlf = true
 
 [color]
 	ui = auto
