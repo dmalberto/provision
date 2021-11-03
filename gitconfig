@@ -22,8 +22,8 @@
 	deleted = red
 
 [alias]
-	hist = "!f() { commits=${1:--20};  git log $commits --branches=* --decorate --oneline --graph --remotes; }; f"
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	h = "!f() { commits=${1:--20};  git log $commits --branches=* --decorate --oneline --graph --remotes; }; f"
 	l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
 	c = !git add --all && git commit -m
 	s = !git status -s
