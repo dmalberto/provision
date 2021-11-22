@@ -1,3 +1,3 @@
 git clone https://github.com/dmalberto/provision.git
-. provision
+cd ./provision
 echo "Installing"
