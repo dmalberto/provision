@@ -6,7 +6,8 @@
 	filemode = false
 	editor = code
 	longpaths = true
-	autocrlf = true
+	autocrlf = false
+	eol = lf
 
 [color]
 	ui = auto
@@ -17,7 +18,7 @@
 
 [color "status"]
 	added = green
-	changed = yellow 
+	changed = yellow
 	untracked = magenta
 	deleted = red
 
