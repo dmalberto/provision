@@ -1,5 +1,5 @@
 # provision
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/dmalberto/provision/master/script.sh?token=AE4LRUYK7MVSPJ5AE6HJI63BUSEH4)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/dmalberto/provision/master/install.sh?token=AE4LRU6ZOSM76DHJGQYLKLLBUSETW)"
 ```
