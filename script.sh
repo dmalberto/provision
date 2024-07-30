@@ -1,62 +1,62 @@
-sudo apt update -y && apt upgrade -y
-sudo apt install git -y
-sudo apt install curl -y
-sudo apt install wget -y
-sudo apt install tmux -y
+#!/bin/bash
 
-# configs
+# Atualização do sistema
+sudo apt update -y && sudo apt upgrade -y
+
+# Instalação de ferramentas essenciais
+sudo apt install -y git curl wget tmux vim zsh build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv apt-transport-https ca-certificates software-properties-common default-jre
+
+# Configurações personalizadas
 cp zshrc ~/.zshrc
 cp vimrc ~/.vimrc
 cp gitconfig ~/.gitconfig
 cp p10k ~/.p10k.zsh
 
-# aws
-sudo apt install awscli -y
+# AWS CLI
+sudo apt install -y awscli
 
-# python3
-sudo apt install -y python3-pip
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
-sudo apt install -y python3-venv
-
-# docker
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+# Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt -y update
-sudo apt -y install docker-ce
+sudo apt update -y
+sudo apt install -y docker-ce
 
-# firebase
-sudo apt install -y default-jre
+# Firebase CLI
 curl -sL https://firebase.tools | bash
 
-# node
-sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-chmod 777 ~/.nvm
-source ~/.bashrc
-nvm install node -y
+# Node.js e Yarn
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+source $NVM_DIR/nvm.sh
+nvm install node
 npm install --global yarn
 
-# zsh
-sudo apt install zsh -y
+# Zsh e Oh My Zsh
+sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sh -c "$(curl -fsSL https://git.io/zinit-install)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 chsh -s $(which zsh)
 source ~/.zshrc
 
-# vim
-sudo apt install vim -y
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Vim e Vim-Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# github cli
+# GitHub CLI
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
+sudo apt update -y
+sudo apt install -y gh
 
+# Visual Studio Code
+# sudo apt install -y snapd
+# sudo snap install code --classic
+
+# Configuração do nvm
 source ~/.nvm/nvm.sh
-# # vscode
-# apt install snapd
-# snap install code --classic
 
+# Limpeza
+sudo apt autoremove -y
+sudo apt clean
+
+echo "Configuração concluída!"
