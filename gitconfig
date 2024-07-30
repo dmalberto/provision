@@ -4,10 +4,12 @@
 
 [core]
 	filemode = false
-	editor = code
+	editor = code --wait
 	longpaths = true
-	autocrlf = false
+	autocrlf = input
 	eol = lf
+	quotepath = false
+	pager = less -FX
 
 [color]
 	ui = auto
@@ -23,14 +25,45 @@
 	deleted = red
 
 [alias]
+	# Logs
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	h = "!f() { commits=${1:--20};  git log $commits --branches=* --decorate --oneline --graph --remotes; }; f"
-	l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
-	c = !git add --all && git commit -m
-	s = !git status -s
-	cp = !git cherry-pick
-	rh = !git reset --hard
-	rs = !git reset --soft
+	l = log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+	
+	# Status
+	s = status -s
+	
+	# Add, Commit, and Push
+	ac = !git add --all && git commit -m
+	ap = !git add --all && git commit -m "$1" && git push
+	amend = commit --amend --no-edit
+	
+	# Cherry-pick
+	cp = cherry-pick
+	
+	# Reset
+	rh = reset --hard
+	rs = reset --soft
+	
+	# Branch
+	b = branch
+	co = checkout
+	ci = commit
+	d = diff
+	st = status
+
+	# Fetch and Pull
+	fp = fetch -p && pull --rebase
+	
+	# Stash
+	stash-pop = stash pop
+	stash-list = stash list
+
+	# Graphical History
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 
 [http]
 	sslVerify = false
+
+[push]
+	default = simple
